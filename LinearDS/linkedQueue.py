@@ -60,10 +60,9 @@ class Queue:
         else:
             return self.linked_list.head
 
-
     def delete(self):
         self.linked_list.head = None
-        self.linked_list.tail  = None
+        self.linked_list.tail = None
 
 
 cust = Queue()
