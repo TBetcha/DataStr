@@ -145,6 +145,13 @@ def delete_node(root_node, node):
             if root.value.right_child is not None:
                 cust.enqueue(root.value.right_child)
         return "Failed to delete"
+    
+    
+def delete_tree(root_node):
+    root_node.data = None
+    root_node.left_child = None
+    root_node.right_child = None
+    return "The Binary Tree has successfully been deleted"
 
 
 new_tree = TreeNode('Drinks')
@@ -174,4 +181,6 @@ level_order(new_tree)
 print('level-----------')
 delete_node(new_tree, 'Hot')
 print('level-----------')
+level_order(new_tree)
+delete_tree(new_tree)
 level_order(new_tree)
