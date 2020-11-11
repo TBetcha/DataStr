@@ -96,6 +96,14 @@ def del_node(root_node, node_value):
     return root_node
 
 
+def del_tree(root_node):
+    if root_node is None:
+        return
+    root_node.data = None
+    root_node.left_child = None
+    root_node.right_child = None
+    return "The tree has been deleted"
+
 new_tree = Node(None)
 print(insert_node(new_tree, 70))
 print(insert_node(new_tree, 60))
@@ -108,6 +116,8 @@ print(post_order(new_tree))
 search(new_tree, 60)
 del_node(new_tree, 10)
 print(in_order(new_tree))
+print(del_tree(new_tree))
+
 
 
 
