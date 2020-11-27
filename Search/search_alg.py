@@ -1,3 +1,5 @@
+import math
+
 def bubbleSort(my_list):
     for i in range(len(my_list)-1):
         for j in range(len(my_list)-i-1):
@@ -32,7 +34,38 @@ def insertion_sort(my_list):
     print(my_list)
 
 
+#bucket sort
+# sq root of number items (round if needed)
+# item bucket = ceiling(value * number of buckets / max Value)
+# sort buckets (any way)
+# merge buckets
+
+def bucket_sort(my_list):
+    num_buckets = round(math.sqrt(len(my_list)))
+    max_value = max(my_list)
+    arr = []
+
+    for i in range(num_buckets):
+        arr.append([])
+    for j in my_list:
+        index_b = math.ceil(j*num_buckets/max_value)
+        arr[index_b-1].append(j)
+
+    for i in range(num_buckets):
+        arr[i] = insertion_sort(arr[i])
+
+    k = 0
+    for i in range(num_buckets):
+        for j in range(len(arr[i])):
+            my_list[k] = arr[i][j]
+            k += 1
+    return my_list
+
+
 the_list = [2,1,7,6,5,3,4,9,8]
 #bubbleSort(the_list)
 #selection_sort(the_list)
-insertion_sort(the_list)
+#insertion_sort(the_list)
+print(bucket_sort(the_list))
+
+
