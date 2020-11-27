@@ -62,10 +62,54 @@ def bucket_sort(my_list):
     return my_list
 
 
+def merge_sort(my_list):
+    if len(my_list) > 1:
+        mid = len(my_list)//2
+        left = my_list[:mid]
+        right = my_list[mid:]
+        merge_sort(left)
+        merge_sort(right)
+
+        i=j=k=0
+
+        while i< len(left) and j< len(right):
+            if left[i] < right[j]:
+                my_list[k] = left[i]
+                i+=1
+            else:
+                my_list[k] = right[j]
+                j+=1
+            k+=1
+
+        while i< len(left):
+            my_list[k] = left[i]
+            i+=1
+            k+=1
+
+        while j<len(right):
+            my_list[k] = right[j]
+            j+=1
+            k+=1
+
+
+def print_merged(my_list):
+    for i in range(len(my_list)):
+        print(my_list[i], end=" ")
+    print()
+
+
 the_list = [2,1,7,6,5,3,4,9,8]
 #bubbleSort(the_list)
 #selection_sort(the_list)
 #insertion_sort(the_list)
-print(bucket_sort(the_list))
+#print(bucket_sort(the_list))
+merge_sort(the_list)
+print_merged(the_list)
+
+
+
+
+
+
 
 
