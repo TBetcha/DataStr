@@ -62,6 +62,7 @@ def bucket_sort(my_list):
     return my_list
 
 
+# extra space needed
 def merge_sort(my_list):
     if len(my_list) > 1:
         mid = len(my_list)//2
@@ -98,14 +99,37 @@ def print_merged(my_list):
     print()
 
 
+# O(n)
+def partition(my_list, low, high):
+    i = low - 1
+    pivot = my_list[high]
+    for j in range(low, high):
+        if my_list[j] <= pivot:
+            i+=1
+            my_list[i], my_list[j] = my_list[j], my_list[i]
+    my_list[i+1], my_list[high] = my_list[high], my_list[i+1]
+    return(i+1)
+
+# no extra space needed
+# O(nLogN) - average
+# O(n^2) - worst
+def quick_sort(my_list, low, high):
+    if low<high:
+        pi=partition(my_list, low, high)
+        quick_sort(my_list, low, pi-1)
+        quick_sort(my_list, pi+1, high)
+
+
+
 the_list = [2,1,7,6,5,3,4,9,8]
 #bubbleSort(the_list)
 #selection_sort(the_list)
 #insertion_sort(the_list)
 #print(bucket_sort(the_list))
-merge_sort(the_list)
-print_merged(the_list)
-
+#merge_sort(the_list)
+#print_merged(the_list)
+quick_sort(the_list, 0, 8)
+print(the_list)
 
 
 
