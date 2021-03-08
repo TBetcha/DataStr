@@ -1,5 +1,4 @@
 """
-
 a -  b \
 | \     e
 c - d  /
@@ -64,7 +63,7 @@ class Graph:
             de_vertex = queue.pop(0)
             print(de_vertex)
             # if item is unvisited
-            for adjacent_vertex in self.gdict(de_vertex):
+            for adjacent_vertex in self.gdict[de_vertex]:
                 #  mark it visited
                 if adjacent_vertex not in visited:
                     visited.append(adjacent_vertex)
@@ -95,3 +94,4 @@ custom_dict = {"a": ["b", "c"],
 graph = Graph(custom_dict)
 graph.add_edge("e", "c")
 print(graph.gdict)
+graph.bfs("a")
