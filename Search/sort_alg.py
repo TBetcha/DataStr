@@ -22,7 +22,24 @@ def selection_sort(my_list):
 #divide into two parts 
 #take first element from unsorted and find correct position
 #repeat
-
+# 2 4 7 3 5
+'''
+key 4
+j = 0
+while j >= 0 and 4<2
+false 
+so 
+4 = key
+-- 3
+key = 3
+j=2
+3 is less than 7 
+so 
+3 swap 7
+j goes back to comapre again 
+stay in while
+compare swap stay in.....
+'''
 def insertion_sort(my_list):
     for i in range(1, len(my_list)):
         key = my_list[i]
@@ -124,11 +141,11 @@ def quick_sort(my_list, low, high):
 the_list = [2,1,7,6,5,3,4,9,8]
 #bubbleSort(the_list)
 #selection_sort(the_list)
-#insertion_sort(the_list)
+insertion_sort(the_list)
 #print(bucket_sort(the_list))
 #merge_sort(the_list)
 #print_merged(the_list)
-quick_sort(the_list, 0, 8)
+#quick_sort(the_list, 0, 8)
 print(the_list)
 
 
