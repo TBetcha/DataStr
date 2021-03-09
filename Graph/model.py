@@ -42,6 +42,24 @@ we then use a linked list to list the connections (edges)
 
 a -> b -> c -> d
 
+Breadth first search
+
+enqueue any starting vertex
+while queue is not empty 
+  p=dequeue()
+  if p is unvisited
+    mark it visited
+    enqueue all adjacent unvisited vertices of p
+
+
+Depth First search
+
+push any starting vertex
+while stack is not empty 
+p = pop()
+if p is unvisited
+   mark it visited 
+   push all adjacent unvisited vertices of p
 """
 
 
@@ -60,6 +78,7 @@ class Graph:
         queue = [vertex]
         while queue:
             # while queue is not empyty dequeue next item
+            # since I use pop with 0 index it pops first index
             de_vertex = queue.pop(0)
             print(de_vertex)
             # if item is unvisited
@@ -70,17 +89,21 @@ class Graph:
                     # append all adjacent vertices
                     queue.append(adjacent_vertex)
 
-
-'''
-Breadth first search
-
-enqueue any starting vertex
-while queue is not empty 
-  p=dequeue()
-  if p is unvisited
-    mark it visited
-    enqueue all adjacent unvisited vertices of p
-'''
+    # time O(V+E)
+    # space O(V+E)
+    def dfs(self, vertex):
+        # structures to hold visited and stack
+        visited = [vertex]  # O(1)
+        stack = [vertex]  # O(1)
+        # while stack is not empty
+        while stack:  # O(V)
+            # pop with no index it pops last element
+            pop_vertex = stack.pop()
+            print(pop_vertex)
+            for adjacent_vertex in self.gdict[pop_vertex]:  # O(E)
+                if adjacent_vertex not in visited:
+                    visited.append(adjacent_vertex)  # O(1)
+                    stack.append(adjacent_vertex)
 
 
 custom_dict = {"a": ["b", "c"],
@@ -94,4 +117,5 @@ custom_dict = {"a": ["b", "c"],
 graph = Graph(custom_dict)
 graph.add_edge("e", "c")
 print(graph.gdict)
-graph.bfs("a")
+# graph.bfs("a")
+graph.dfs("a")
