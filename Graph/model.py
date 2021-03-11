@@ -60,6 +60,16 @@ p = pop()
 if p is unvisited
    mark it visited 
    push all adjacent unvisited vertices of p
+
+
+Topological sort
+
+deals with dependencies of actions. Dependent action always comes later than it's parents
+
+if a vertex depends on current vertex:
+  go to that vertex and then come back to current
+else
+  push current vertex to stack
 """
 
 
