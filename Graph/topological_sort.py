@@ -10,19 +10,19 @@ class Graph:
         self.graph[vertex].append(edge)
 
     def topological_util(self, v, visited, stack):
-        visited.append(v)
+        visited.append(v)  # -> O(1)
 
-        for i in self.graph[v]:
+        for i in self.graph[v]:  # -> O(E)
             if i not in visited:
                 self.topological_util(i, visited, stack)
 
-        stack.insert(0, v)
+        stack.insert(0, v)  # -> O(1)
 
     def topological_sort(self):
-        visited = []
+        visited = []  # O(1)
         stack = []
 
-        for k in list(self.graph):
+        for k in list(self.graph):  # -> O(E+V)
             if k not in visited:
                 self.topological_util(k, visited, stack)
         print(stack)
