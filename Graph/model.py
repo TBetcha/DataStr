@@ -50,6 +50,7 @@ while queue is not empty
   if p is unvisited
     mark it visited
     enqueue all adjacent unvisited vertices of p
+    ONLY FOR SINGLE SHORTEST PATH -> update parent of adjacent vertices to current vertext 
 
 
 Depth First search
