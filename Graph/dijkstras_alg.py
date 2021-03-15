@@ -26,6 +26,9 @@ class Graph:
         self.edges[from_node].append(to_node)
         self.distances[(from_node, to_node)] = distance
 
+# time O(V^2)
+# space O(E)
+
 
 def dijkstra(graph, initial):
     visited = {initial: 0}
