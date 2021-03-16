@@ -8,6 +8,23 @@ it can't identify them and therefore the cost will decrease every time through
 
 NOTE: A negative edge doesn't constitute a negative cycle
       It has to be a cycle with a negatvie edge where the cycle count is a negative number
+
+      
+      
+Bellman Ford
+
+NOTE: This is what to use for negative cycles. It will work for all though, but not best choice 
+
+## only positive 
+
+If the distance of destination vertex > (distance of source vertex + weight between source and destination vertex ):
+    update distance of the destination vertex to (distance of source vertex and weight between source and destination vertex)
+
+## negative cycle
+
+If the distance of destination vertex > (distance of source vertex + weight between source and destination vertex ):
+    update distance of the destination vertex to (distance of source vertex and weight between source and destination vertex)
+
 '''
 
 from collections import defaultdict
@@ -57,6 +74,9 @@ def dijkstra(graph, initial):
                 path[edge].append(min_node)
 
     return visited, path
+
+
+def bellman_ford()
 
 
 cust_graph = Graph()
