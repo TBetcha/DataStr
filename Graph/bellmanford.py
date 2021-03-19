@@ -35,15 +35,15 @@ class Graph:
             print("  " + key, " :   ", value)
 
     def bellman_ford(self, src):
-        dist = {i: float("Inf") for i in self.nodes}
+        dist = {i: float("Inf") for i in self.nodes}  # -> O(V)
         dist[src] = 0.0
 
-        for _ in range(self.V-1):
-            for s, d, w in self.graph:
+        for _ in range(self.V-1):  # -> O(V)
+            for s, d, w in self.graph:  # O(E)
                 if dist[s] != float("Inf") and dist[s] + w < dist[d]:
                     dist[d] = dist[s] + w
 
-        for s, d, w in self.graph:
+        for s, d, w in self.graph:  # -> O(E)
             if dist[s] != float("Inf") and dist[s] + w < dist[d]:
                 print("Graph contains negative cycle")
                 return
