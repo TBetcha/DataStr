@@ -7,6 +7,7 @@ every node stores link of the next character of the string
 
 every node keeps track of the 'end of string'
 
+
 '''
 
 
@@ -33,6 +34,21 @@ class Trie:
         print("Successfully inserted")
 
 
+    def search_str(self, word):
+        current = self.root
+        for i in word:
+            node = current.children.get(i)
+            if node == None:
+                return False
+            current = node
+            
+        if current.end_string == True:
+            return True
+        else:
+            return False
+
 trie_one = Trie()
 trie_one.insert_string('App')
 trie_one.insert_string("Appl")
+print(trie_one.search_str('App'))
+print(trie_one.search_str('Ap'))
