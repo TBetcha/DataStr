@@ -31,7 +31,7 @@ def post_order(root_node):
     if not root_node:
         return
     post_order(root_node.left_child)
-    pre_order(root_node.right_child)
+    post_order(root_node.right_child)
     print(root_node.data)
 
 
@@ -145,8 +145,8 @@ def delete_node(root_node, node):
             if root.value.right_child is not None:
                 cust.enqueue(root.value.right_child)
         return "Failed to delete"
-    
-    
+
+
 def delete_tree(root_node):
     root_node.data = None
     root_node.left_child = None
