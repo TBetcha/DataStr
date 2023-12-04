@@ -50,14 +50,6 @@ def insertion_sort(my_list):
         my_list[j+1] = key
     print(my_list)
 
-#I like this one
-def insertionSort(array):
-    for i in range(1, len(array)):
-        j = i
-        while j > 0 and array[j] < array[j - 1]:
-            array[j], array[j - 1] = array[j - 1], array[j]
-            j = j - 1
-    return array
 
 #bucket sort
 # sq root of number items (round if needed)
